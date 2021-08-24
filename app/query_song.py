@@ -8,6 +8,9 @@ import json
 
 API_KEY = os.getenv('API_KEY')
 
+all_song_ids = []
+
+
 def get_song_id_by_name(track_name):
     url = str('https://api.spotify.com/v1/search?q=' + track_name + '&type=track&limit=5')
 
@@ -25,6 +28,20 @@ def get_song_id_by_name(track_name):
         if jsondata['tracks']['items'][i]['album']['album_type'] == 'single':
             song_ids.append(jsondata['tracks']['items'][i]['id'])
 
-    song = song_ids[0]
+    song_id = song_ids[0]
 
-    print(song)
+    return song_id
+    
+    
+def get_song_features_by_multiple_ids(all_song_ids):
+    url = str('https://api.spotify.com/v1/audio-features?ids=' + all_song_ids)
+
+    headers = {"Accept": "application/json",
+               "Content-Type": "application/json",
+               "Authorization": API_KEY}
+
+    r = requests.get(url, headers=headers)
+
+    jsondata = json.loads(r.text)
+
+    return jsondata
