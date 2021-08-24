@@ -5,10 +5,6 @@ from flask_sqlalchemy import SQLAlchemy
 from orm_model import Song, DB
 from query_song import get_song_id_by_name, get_song_features_by_multiple_ids
 from sqlalchemy.exc import IntegrityError
-import tweepy
-import os
-import spacy
-import pathlib
 
 def create_app():
     app = Flask(__name__)
