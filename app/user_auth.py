@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
+from spotipy.exceptionspotipy.oauth2 import SpotifyOauthError
 
 load_dotenv()
 AUTH_URL = 'https://accounts.spotify.com/authorize'
@@ -39,5 +40,5 @@ def authorize():
 
         return sp
 
-    except Exception as err:
+    except (Exception, SpotifyOauthError) as err:
         print(err)

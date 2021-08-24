@@ -1,0 +1,116 @@
+commit 2ce4476a0bb07ebe274936f88d887843644799d4
+Merge: da3bf95 1b65309
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Mon Aug 23 21:37:02 2021 -0600
+
+    Merge branch 'main' of https://github.com/DSPT-Spotify-04/spotify into dev
+
+commit 1b653091d383d60746c1a2f14e71c0ea5780d53b
+Author: ubaidurk <77473624+ubaidurk@users.noreply.github.com>
+Date:   Mon Aug 23 23:15:08 2021 -0400
+
+    Update query_song.py
+
+commit a058cce835c87c73c39fbe1af864d869e88616e1
+Author: ubaidurk <77473624+ubaidurk@users.noreply.github.com>
+Date:   Mon Aug 23 23:14:39 2021 -0400
+
+    Update query_song.py
+
+commit 93e4237651fef070e07925aac2f8fbc59e6d663f
+Author: ubaidurk <77473624+ubaidurk@users.noreply.github.com>
+Date:   Mon Aug 23 20:28:42 2021 -0400
+
+    Update query_song.py
+
+commit f31a0a6b2a7adcd6112d47a110817b1e5e43b865
+Author: ubaidurk <77473624+ubaidurk@users.noreply.github.com>
+Date:   Mon Aug 23 20:23:12 2021 -0400
+
+    Create query_song.py
+
+commit da3bf95db33593cc1b8e85e1d71027312918457b
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Mon Aug 23 17:45:29 2021 -0600
+
+    Authorize function in user_auth.py is working; Spotipy package implemented.
+
+commit 9a934bb652a483899f124131ce626c621396e626
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Mon Aug 23 17:11:57 2021 -0600
+
+    Fixed notebook; able to access spotify library data.
+
+commit fd0086eb59aab977277434fc057dc2e7d338f141
+Author: ubaidurk <77473624+ubaidurk@users.noreply.github.com>
+Date:   Mon Aug 23 12:49:34 2021 -0400
+
+    Rename auth.py to user_auth.py
+    
+    This is for user authentication. For our MVP, I think we should use a developer API key to fetch data on songs entered in through the website. Feel free to let me know if you disagree though.
+
+commit 0c832d4316ec9ef3d74a3e317c16a12be73f75ca
+Author: ubaidurk <77473624+ubaidurk@users.noreply.github.com>
+Date:   Sun Aug 22 19:50:47 2021 -0400
+
+    Rename orm_model.py to app/orm_model.py
+
+commit 5073fd436631def432a84a44a4f461f9806781cd
+Author: ubaidurk <77473624+ubaidurk@users.noreply.github.com>
+Date:   Sun Aug 22 19:49:32 2021 -0400
+
+    Add files via upload
+
+commit 598270744e3a34b9e2b5d4516a53f4911fe08255
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Fri Aug 20 19:24:47 2021 -0600
+
+    Foundation for requests authorization in auth.py; not yet functional.
+
+commit b65fd09e3fc50c137556278b1f356d64c8583379
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Fri Aug 20 15:27:25 2021 -0600
+
+    Authorization successful in auth.py.
+
+commit 1ba3406d6dd50d9868827f76bcc0bb021aba6f0a
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Thu Aug 19 20:17:59 2021 -0600
+
+    Updated requirements.
+
+commit 77cc0c478297b1934946f2c0b95dd64b65ed21eb
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Thu Aug 19 19:01:46 2021 -0600
+
+    Minor style edits to app.py; basic app runs with no functionality.
+
+commit 4932370ad0d882ef49a6f56ec537a62241839c81
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Thu Aug 19 18:59:54 2021 -0600
+
+    Working flask app running.
+
+commit 305d8c40ae1047592cb0a024932d3cdd444dd064
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Thu Aug 19 17:11:21 2021 -0600
+
+    Set up python environment and requirements.txt.
+
+commit 9d2939b705bca6fb5e4e90369ec7dc1ffcc9e806
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Thu Aug 19 16:13:20 2021 -0600
+
+    Changed notebooks_jacob to notebooks.
+
+commit 55d60d49cbcaeaec5473a4525dde0849362efc55
+Author: Jacob Torres <jacob@jacobtorres.net>
+Date:   Thu Aug 19 15:22:01 2021 -0600
+
+    Added marketing page and gitignore file.
+
+commit b6e9b46a38bf644ed3560e83498bff7dfe6cd96c
+Author: ubaidurk <77473624+ubaidurk@users.noreply.github.com>
+Date:   Thu Aug 19 14:20:59 2021 -0400
+
+    Create README.md
