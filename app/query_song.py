@@ -33,7 +33,7 @@ def get_song_id_by_name(track_name):
     all_song_ids.append(song_id)
     
     
-def get_song_features_by_multiple_ids(song_ids):
+def get_song_features_by_multiple_ids():
     url = str('https://api.spotify.com/v1/audio-features?ids=' + str(all_song_ids))
 
     headers = {"Accept": "application/json",
