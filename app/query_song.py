@@ -30,15 +30,16 @@ def get_song_id_by_name(track_name):
 
     song_id = song_ids[0]
 
-    all_song_ids.append(song_id)
+    return song_id
     
     
-def get_song_features_by_multiple_ids():
-    url = str('https://api.spotify.com/v1/audio-features?ids=' + str(all_song_ids))
+def get_song_features_by_multiple_ids(all_song_ids):
+    url = str('https://api.spotify.com/v1/audio-features?ids=' + all_song_ids)
 
     headers = {"Accept": "application/json",
                "Content-Type": "application/json",
                "Authorization": API_KEY}
+
     r = requests.get(url, headers=headers)
 
     jsondata = json.loads(r.text)
