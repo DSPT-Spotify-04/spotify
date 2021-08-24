@@ -9,10 +9,9 @@ AUTH_URL = 'https://accounts.spotify.com/authorize'
 API_URL = 'https://accounts.spotify.com/api/token'
 SCOPE = [
     'playlist-read-private',
-    'playlist-read-collaborative',
+    'playlist-modify-public',
     'user-read-private',
     'user-library-read',
-    'user-read-currently-playing',
     'user-read-recently-played',
     'user-top-read'
 ]
