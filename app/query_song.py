@@ -13,7 +13,7 @@ def get_song_id_by_name(track_name):
 
     headers = {"Accept": "application/json",
                "Content-Type": "application/json",
-               "Authorization": "Bearer BQCel627383_kzC7sfoH548qhL7ZCicQRHaV0DzcLjVTa_lhqHWRWpVbhpAfvgyrRgkflDKaBd01YD8BsQ8rRayIgkNNV5ahzn0A3hxHzIiUbMS5PM9x9o_QhjhyUM77Q8g979iw_4twyMSuOHFqZLjrEBEVrsA"}
+               "Authorization": API_KEY}
 
     r = requests.get(url, headers=headers)
 
