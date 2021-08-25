@@ -7,6 +7,7 @@ import json
 '''We can then use the song ID to get audio features for the song'''
 
 API_KEY = os.getenv('API_KEY') # Go to https://developer.spotify.com/console/get-audio-features-several-tracks/ and press 'Get Token'. It'll ask you to login to spotify to get a key.
+                               # Set the OAuth token as API_KEY environment variable, but make sure you put "Bearer " before the key.
 
 def get_song_id_by_name(track_name):
     url = str('https://api.spotify.com/v1/search?q=' + track_name + '&type=track&limit=5') # URL format
