@@ -6,10 +6,10 @@ import sqlite3
 
 con = sqlite3.connect("spotify_db.sqlite3") # DB
 cur = con.cursor()
-master_song_db = cur.execute("SELECT * FROM data;") # 'data' is a table with 160K existing songs
-user_selected_songs_db = cur.execute("SELECT * FROM Song;") # All of the songs entered in by the user through the app
 
 target = 'is_recommended' # The target variable is whether or not the song should be recommended or not
+
+user_selected_songs_db = cur.execute("SELECT * FROM Song;") # All of the songs entered in by the user through the app
 
 train = pd.DataFrame(user_selected_songs_db, columns=[ # Renaming the columns, because importing the sqlite3 database simply names them '1...2...3...4...'
     'id', 'name', 'energy', 'key', 'loudness', 'mode',
@@ -23,6 +23,8 @@ train = train[[ # Reordering columns to match testing data
     'loudness', 'mode', 'valence', 'speechiness']]
 
 train['is_recommended'] = 1 # The songs that the user has entered in *are* recommended. We train a model using their songs, then predict "is_recommended" for the big dataset with 160K songs (test)
+
+master_song_db = cur.execute("SELECT * FROM data;") # 'data' is a table with 160K existing songs
 
 test = pd.DataFrame(master_song_db, columns=[ # Renaming columns
     'name', 'id', 'acousticness', 'danceability', 'duration_ms',
