@@ -24,7 +24,7 @@ REDIRECT_URI = os.getenv('REDIRECT_URI')
 def authorize():
     """
     Authorizes the app to access the spotify API using Spotipy.
-    returns: <spotipy.client.Spotify> -- Authorized Spotify API object
+    returns <spotipy.client.Spotify> -- Authorized Spotify API object
     """
 
     try:
