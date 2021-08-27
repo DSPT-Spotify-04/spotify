@@ -1,10 +1,11 @@
-'''Spotify Song Suggester'''
+"""Spotify Song Suggester"""
 
 from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from orm_model import Song, DB
 from query_song import get_song_id_by_name, get_song_features_by_multiple_ids
 from sqlalchemy.exc import IntegrityError
+
 
 def create_app():
     app = Flask(__name__)
@@ -45,5 +46,6 @@ def create_app():
             return '{}<br> that id is taken'.format(str(e))
 
     return app
+
 
 create_app().run()
