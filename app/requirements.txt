@@ -182,7 +182,6 @@ spotipy==2.19.0
 SQLAlchemy==1.3.23
 sqlparse==0.4.1
 squarify==0.4.3
--e git+https://github.com/ptpt-airbnb-2/AirBnB-Optimal-Price@20abde3e951dfcbdd59a015d78305e6f2060eb1c#egg=src
 srsly==2.4.0
 starlette==0.14.2
 statsmodels==0.12.1
