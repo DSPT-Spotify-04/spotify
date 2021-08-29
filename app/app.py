@@ -1,10 +1,12 @@
-'''Spotify Song Suggester'''
+"""Spotify Song Suggester"""
 
 from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from orm_model import Song, DB
+from predict import *
 from query_song import get_song_id_by_name, get_song_features_by_multiple_ids
 from sqlalchemy.exc import IntegrityError
+
 
 def create_app():
     app = Flask(__name__)
@@ -14,7 +16,7 @@ def create_app():
 
     @app.route('/')
     def landing():
-        return 'Welcome to the Spotify Song Suggester!'
+        return render_template('landing.html')
 
     @app.route('/add_song')
     def add_song():
@@ -44,6 +46,12 @@ def create_app():
         except IntegrityError as e:
             return '{}<br> that id is taken'.format(str(e))
 
+    @app.route('/predict_top_10_songs')
+    def predict_top_10_songs():
+
+        return render_template('added_songs.html', songs=predict_songs())
+
     return app
+
 
 create_app().run()
