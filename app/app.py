@@ -49,7 +49,7 @@ def create_app():
     @app.route('/predict_top_10_songs')
     def predict_top_10_songs():
 
-        return 'predict top 10 songs test'
+        return render_template('added_songs.html', songs=predict_songs())
 
     return app
 

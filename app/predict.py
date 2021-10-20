@@ -3,8 +3,6 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 import sqlite3
 
-con = sqlite3.connect("spotify_db.sqlite3")  # DB
-cur = con.cursor()
 
 target = 'is_recommended'  # The target variable is whether or not the song should be recommended or not
 data = [  # Data columns
@@ -14,6 +12,9 @@ data = [  # Data columns
 
 
 def predict_songs():
+    con = sqlite3.connect("spotify_db.sqlite3")  # DB
+    cur = con.cursor()
+
     # All of the songs entered in by the user through the app
     user_selected_songs_db = cur.execute("SELECT * FROM Song;")
 
@@ -31,7 +32,7 @@ def predict_songs():
         'loudness', 'mode', 'valence', 'speechiness']]
     # The songs that the user has entered in *are* recommended. We train a model using their
     # songs, then predict "is_recommended" for the big dataset with 160K songs (test)
-    train['is_recommended'] = 1
+    train[target] = 1
 
     # 'data' is a table with 160K existing songs
     master_song_db = cur.execute("SELECT * FROM data;")
@@ -41,25 +42,28 @@ def predict_songs():
         'energy', 'tempo', 'instrumentalness', 'key', 'liveness',
         'loudness', 'mode', 'valence', 'speechiness'
     ])
-    test['is_recommended'] = 0
+    test[target] = 0
 
     # Get the X/Y sets for both "train" and "test"
     X_train = train[data]
     y_train = train[target]
     X_test = test[data]
     y_test = test[target]
+    X_train.append(X_test)
+    y_train.append(y_test)
+    X_predict = test[data]
 
     # Create model
     model = LinearRegression()
     model.fit(X=X_train, y=y_train)
 
-    counter = 0
-    songratings = []
-    for index, row in X_test.iterrows():
-        output = model.predict([row])
-        songratings.append((test['id'][counter], output))
+    output = model.predict(X_test)
+    print(output)
 
-        print(output)
-        counter += 1
-        break
-    print(model.score(X_test, y_test))
+    # print(model.score(X_test, [len(X_test.values)] * 0))
+
+    test['is_recommended'] = output
+    test.sort_values(by='is_recommended', ascending=False, inplace=True)
+    print(test.head()['id'])
+    top_10 = test.head(10)['name'].tolist()
+    return top_10
