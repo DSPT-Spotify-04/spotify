@@ -30,6 +30,13 @@ def predict_songs_top_10(song_name):
         'name', 'id', 'acousticness',
         'energy', 'tempo', 'instrumentalness', 'key', 'liveness',
         'loudness', 'mode', 'valence', 'speechiness']]
+    X = train[data]
+    Y = train['id']
 
     model = Sequential()
     model.add(Dense(100), input_size=(len(data),))
+
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+    model.fit(X, Y, batch_size=32, epochs=10)
+
+    model.predict()
