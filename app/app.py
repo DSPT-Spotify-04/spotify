@@ -16,7 +16,7 @@ def create_app():
 
     @app.route('/')
     def landing():
-        return render_template('landing.html')
+        return render_template('index.html')
 
     @app.route('/add_song')
     def add_song():
@@ -49,7 +49,7 @@ def create_app():
     @app.route('/predict_top_10_songs')
     def predict_top_10_songs():
 
-        return render_template('added_songs.html', songs=predict_songs())
+        return render_template('index.html', songs=predict_songs())
 
     return app
 
