@@ -4,6 +4,7 @@ from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from orm_model import Song, DB
 from predict import *
+from predict_top_10 import *
 from query_song import get_song_id_by_name, get_song_features_by_multiple_ids
 from sqlalchemy.exc import IntegrityError
 
@@ -49,7 +50,12 @@ def create_app():
     @app.route('/predict_top_10_songs')
     def predict_top_10_songs():
 
-        return render_template('added_songs.html', songs=predict_songs())
+        return render_template('added_songs.html', songs=predict_songs_top_10())
+
+    @app.route('/predict_top_10')
+    def predict_top_10():
+        song_name = request.args['song_name']
+        return render_template('added_songs.html', songs=predict_songs_top_10(song_name))
 
     return app
 
